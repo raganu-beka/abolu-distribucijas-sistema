@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post">
+    Ābolu tips: <select name="type">
+        {% for apple in apples %}
+        <option value="{{ apple.id }}">{{ apple.type }} {{ apple.readiness }} {{ apple.price }}</option>
+        {% endfor %}
+    </select> <br>
+    Daudzums: <input type="number" name="amount" min="0"> <br>
+    <input type="submit" value="Pirkt ābolus!">
+</form>
+{% endblock %}

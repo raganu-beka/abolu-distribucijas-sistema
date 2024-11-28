@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ābolu distribūcijas sistēma</title>
+</head>
+<body>
+<ul>
+    {% if not user %}
+        <li><a href="{{ url_for('register') }}">Reģistrēties</a></li>
+    {% else %}
+        <li><a href="{{ url_for('logout') }}">Iziet</a></li>
+    {% endif %}
+</ul>
+<ul>
+    <li><a href="{{ url_for('buy_apples') }}">Iegādāties ābolus</a></li>
+    <li><a href="{{ url_for('sell_apples') }}">Nodot ābolus</a></li>
+    <li><a href="{{ url_for('get_fertilizer') }}">Mēslojums</a></li>
+</ul>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block content %}{% endblock %}
+</body>
+</html>

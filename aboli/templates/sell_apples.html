@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post">
+    Šķirne: <select name="type">
+        {% for apple in apples %}
+        <option value="{{ apple.id }}">{{ apple.type }}</option>
+        {% endfor %}
+    </select> <br>
+    Šķirne: <select name="price">
+        <option value="0">Bezmaksas</option>
+        <option value="1">1 ābols = 0.01 EUR</option>
+    </select> <br>
+    Daudzums: <input type="number" name="amount"> <br>
+    Adrese: <input type="text" name="address"> <br>
+    Novākšana: <input type="date" name="date"> <br>
+
+    <input type="submit" value="Nodot ābolus!">
+</form>
+{% endblock %}
